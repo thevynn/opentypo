@@ -1,12 +1,11 @@
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+// import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
-import { ThemeProvider } from "@/components/providers/theme-provider"
-
-import AuthSession from '@/components/providers/session-provider'
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import AuthSession from "@/components/providers/session-provider";
 
 const pretendard = localFont({
   src: "../public/fonts/PretendardVariable.woff2",
@@ -15,11 +14,15 @@ const pretendard = localFont({
   variable: "--font-pretendard",
 });
 
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-instrumentSerif',
+const instrumentSerif = localFont({
+  src: "../public/fonts/InstrumentSerif-Regular.ttf",
+  weight: "400",
+  variable: "--font-instrumentSerif",
+});
+const instrumentSerifItalic = localFont({
+  src: "../public/fonts/InstrumentSerif-Italic.ttf",
+  weight: "400",
+  variable: "--font-instrumentSerifItalic",
 });
 
 export const metadata: Metadata = {
@@ -33,10 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="kr" className={`${pretendard.variable} ${instrumentSerif.variable}`}>
+    <html
+      lang="kr"
+      className={`${pretendard.variable} ${instrumentSerif.variable} ${instrumentSerifItalic.variable}`}
+    >
       <body className={pretendard.className}>
-      <AuthSession>
-        <ThemeProvider
+        <AuthSession>
+          <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
@@ -53,10 +59,9 @@ export default function RootLayout({
               speed={200}
               shadow="0 0 10px #2299DD,0 0 5px #2299DD"
             />
-            {children}
-        </ThemeProvider>
-      </AuthSession>
-      
+              {children}
+          </ThemeProvider>
+        </AuthSession>
       </body>
     </html>
   );

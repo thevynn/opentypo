@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const {
   default: flattenColorPalette,
@@ -7,11 +7,11 @@ const {
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -23,21 +23,22 @@ const config = {
     },
     extend: {
       fontFamily: {
-        serif: ['var(--font-instrumentSerif)'],
+        serif: ["var(--font-instrumentSerif)"],
+        italic: ["var(--font-instrumentSerifItalic)"],
       },
       colors: {
-        'brandColor': {
-            '50': '#fff4ec',
-            '100': '#ffe6d3',
-            '200': '#ffc9a5',
-            '300': '#ffa36d',
-            '400': '#ff7132',
-            '500': '#ff4a0a',
-            '600': '#ff2f00',
-            '700': '#cc1d02',
-            '800': '#a1180b',
-            '900': '#82170c',
-            '950': '#460804',
+        brandColor: {
+          "50": "#fff4ec",
+          "100": "#ffe6d3",
+          "200": "#ffc9a5",
+          "300": "#ffa36d",
+          "400": "#ff7132",
+          "500": "#ff4a0a",
+          "600": "#ff2f00",
+          "700": "#cc1d02",
+          "800": "#a1180b",
+          "900": "#82170c",
+          "950": "#460804",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -114,19 +115,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
-} satisfies Config
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
- 
-  addBase({
-    ":root": newVars,
-  });
-}
-
-export default config
+export default config;

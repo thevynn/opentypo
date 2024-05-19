@@ -10,7 +10,7 @@ import GoogleLogo from "@/public/images/googleLogo.svg";
 import GithubLogo from "@/public/images/githubLogo.svg";
 import AppleLogo from "@/public/images/appleLogo.svg";
 
-export default function SignUp() {
+export default function SignIn() {
   return (
     <div key="1" className="grid h-dvh w-full grid-cols-1 lg:grid-cols-2">
       <div className="relative hidden lg:block overflow-hidden	">
@@ -70,22 +70,22 @@ export default function SignUp() {
               <BrandLogo width={100} />
             </Link>
             <h2 className="mt-6 text-4xl font-serif tracking-tight text-neutral-900 dark:text-neutral-50">
-              Sign up with your social account
+              Sign in with your social account
             </h2>
           </div>
           <div className="space-y-5">
             <div className="space-y-3">
               <Button className="w-full" variant="default">
                 <GoogleLogo className="mr-2 h-5 w-5" />
-                Google 계정으로 가입
+                Google 계정으로 로그인
               </Button>
               <Button className="w-full" variant="default">
                 <GithubLogo className="mr-2 h-5 w-5" />
-                GitHub 계정으로 가입
+                GitHub 계정으로 로그인
               </Button>
               <Button className="w-full" variant="default">
                 <AppleLogo className="mr-2 h-5 w-5" />
-                Apple ID로 가입
+                Apple ID로 로그인
               </Button>
             </div>
 
@@ -95,12 +95,12 @@ export default function SignUp() {
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-background px-2 text-muted-foreground">
-                  이미 계정이 있으신가요?
+                  아직 계정이 없으신가요?
                 </span>
               </div>
             </div>
             <Button className="w-full" variant="outline">
-              기존 계정으로 로그인
+              SNS 계정으로 회원가입
             </Button>
           </div>
         </motion.div>
